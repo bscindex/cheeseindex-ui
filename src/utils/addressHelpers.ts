@@ -1,45 +1,25 @@
 import addresses from 'config/constants/contracts'
-import { Address } from 'config/constants/types'
 
-export const getAddress = (address: Address): string => {
-  const mainNetChainId = 56
-  const chainId = process.env.REACT_APP_CHAIN_ID
-  return address[chainId] ? address[chainId] : address[mainNetChainId]
-}
+const chainId = process.env.REACT_APP_CHAIN_ID
 
 export const getCidAddress = () => {
-  return getAddress(addresses.cid)
+  return addresses.cid[chainId]
+}
+export const getCsiAddress = () => {
+  return addresses.csi[chainId]
 }
 export const getMasterChefAddress = () => {
-  return getAddress(addresses.masterChef)
+  return addresses.masterChef[chainId]
 }
 export const getMulticallAddress = () => {
-  return getAddress(addresses.mulltiCall)
+  return addresses.mulltiCall[chainId]
 }
 export const getWbnbAddress = () => {
-  return getAddress(addresses.wbnb)
+  return addresses.wbnb[chainId]
 }
 export const getLotteryAddress = () => {
-  return getAddress(addresses.lottery)
+  return addresses.lottery[chainId]
 }
 export const getLotteryTicketAddress = () => {
-  return getAddress(addresses.lotteryNFT)
-}
-export const getCheeseIndexTokenProfileAddress = () => {
-  return getAddress(addresses.cheeseIndexTokenProfile)
-}
-export const getCheeseIndexTokenRabbitsAddress = () => {
-  return getAddress(addresses.cheeseIndexTokenRabbits)
-}
-export const getBunnyFactoryAddress = () => {
-  return getAddress(addresses.bunnyFactory)
-}
-export const getClaimRefundAddress = () => {
-  return getAddress(addresses.claimRefund)
-}
-export const getPointCenterIfoAddress = () => {
-  return getAddress(addresses.pointCenterIfo)
-}
-export const getBunnySpecialAddress = () => {
-  return getAddress(addresses.bunnySpecial)
+  return addresses.lotteryNFT[chainId]
 }

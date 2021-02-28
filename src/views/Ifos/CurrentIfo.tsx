@@ -52,11 +52,14 @@ const Ifo = () => {
             <li>{TranslateString(598, 'Get CID-BNB LP tokens by adding CID and BNB liquidity')}</li>
           </List>
           <Flex mb="16px">
-            <LinkExternal href="https://exchange.cheeseIndexTokenswap.finance/#/swap" mr="16px">
-              {TranslateString(1060, 'Buy CID')}
+            <LinkExternal
+              href="https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0x2cc26dd730f548dc4ac291ae7d84a0c96980d2cb"
+              mr="16px"
+            >
+              {TranslateString(999, 'Buy Cid')}
             </LinkExternal>
-            <LinkExternal href="https://exchange.cheeseIndexTokenswap.finance/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
-              {TranslateString(1062, 'Get LP tokens')}
+            <LinkExternal href="https://swap.cidfinance.app/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+              {TranslateString(999, 'Get LP tokens')}
             </LinkExternal>
           </Flex>
           <Heading mb="16px">{TranslateString(600, 'During Sale')}:</Heading>
@@ -69,28 +72,24 @@ const Ifo = () => {
             <li>{TranslateString(608, 'Done!')}</li>
           </List>
           <Text as="div" pt="16px">
-            <Button
-              as="a"
-              variant="secondary"
-              href="https://docs.cheeseIndexTokenswap.finance/core-products/ifo-initial-farm-offering"
-            >
+            <Button as="a" variant="secondary" href="https://cidfinance.app/">
               {TranslateString(610, 'Read more')}
             </Button>
           </Text>
         </div>
         <div>
-          <Image src="/images/ifo-bunny.svg" alt="ifo bunny" width={436} height={406} responsive />
+          <Image src="/images/ifo-shop.svg" alt="ifo shop" width={436} height={406} responsive />
           <div>
             <Title as="h2">{TranslateString(512, 'Want to launch your own IFO?')}</Title>
             <Text mb={3}>
               {TranslateString(
                 514,
-                'Launch your project with CheeseIndexTokenSwap, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
+                'Launch your project with CidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
               )}
             </Text>
             <Button
               as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScGdT5rrVMr4WOWr08pvcroSeuIOtEJf1sVdQGVdcAOqryigQ/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfQxi51mWTkB5bdH8_op_xFVpZMBMTM5HqswZRI2xLXtT5FsA/viewform"
               external
             >
               {TranslateString(516, 'Apply to launch')}

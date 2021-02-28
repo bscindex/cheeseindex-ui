@@ -11,16 +11,14 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Swap',
-        href: 'https://swap.bscindex.com',
+        label: 'Exchange',
+        href:
+          'https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
       },
       {
         label: 'Liquidity',
-        href: 'https://swap.bscindex.com/#/pool',
-      },
-      {
-        label: 'Exchange',
-        href: '#',
+        href:
+          'https://cheeseswap.app/#/add/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
       },
     ],
   },
@@ -35,80 +33,34 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   {
-    label: 'Lottery',
-    icon: 'TicketIcon',
-    href: '/lottery',
-  },
-  {
-    label: 'Collectibles',
-    icon: 'NftIcon',
-    href: '/collectibles',
-  },
-  {
-    label: 'Teams & Profile',
-    icon: 'GroupsIcon',
-    calloutClass: 'rainbow',
-    items: [
-      {
-        label: 'Leaderboard',
-        href: '/teams',
-      },
-      {
-        label: 'Task Center',
-        href: '/profile/tasks',
-      },
-      {
-        label: 'Your Profile',
-        href: '/profile',
-      },
-    ],
-  },
-  {
     label: 'Info',
     icon: 'InfoIcon',
     items: [
       {
         label: 'Overview',
-        href: 'https://info.bscindex.com',
+        href: 'https://info.cheeseswap.app',
       },
       {
         label: 'Tokens',
-        href: 'https://info.bscindex.com/tokens',
+        href: 'https://info.cheeseswap.app/token/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
       },
       {
         label: 'Pairs',
-        href: 'https://info.bscindex.com/pairs',
+        href: 'https://info.cheeseswap.app/pair/0xdf8481f4ffb688d940f59f839c2613cc6c40a79e',
       },
       {
         label: 'Accounts',
-        href: 'https://info.bscindex.com/accounts',
+        href: 'https://info.cheeseswap.app/accounts',
       },
     ],
-  },
-  {
-    label: 'IFO',
-    icon: 'IfoIcon',
-    href: '/ifo',
   },
   {
     label: 'More',
     icon: 'MoreIcon',
     items: [
       {
-        label: 'Voting',
-        href: 'https://voting.bscindex.com',
-      },
-      {
         label: 'Github',
-        href: 'https://github.com/bscindex',
-      },
-      {
-        label: 'Docs',
-        href: 'https://docs.bscindex.com',
-      },
-      {
-        label: 'Blog',
-        href: 'https://bscindex.medium.com',
+        href: 'https://github.com/cidfinance',
       },
     ],
   },

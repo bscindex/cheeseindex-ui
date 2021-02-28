@@ -26,12 +26,12 @@ const WinCard = () => {
         <Heading color="contrast" size="lg">
           Lottery with
         </Heading>
-        <CardMidContent color="#ECB323">${lotteryPrize}</CardMidContent>
+        <CardMidContent color="#39A38C">${lotteryPrize}</CardMidContent>
         <Flex justifyContent="space-between">
           <Heading color="contrast" size="lg">
             up for grabs
           </Heading>
-          <NavLink exact activeClassName="active" to="/lottery" id="lottery-pot-cta">
+          <NavLink exact activeClassName="active" to="/lottery">
             <ArrowForwardIcon mt={30} color="primary" />
           </NavLink>
         </Flex>

@@ -100,7 +100,7 @@ const WinningNumbers: React.FC = () => {
                 </CenteredTextWithPadding>
               </RowNoPadding>
             </Column>
-            <Link href="https://api.bscindex.com/api/lottery?page=0&pageSize=25" target="_blank">
+            <Link href="https://api.cidfinance.app/api/lottery?page=0&pageSize=25" target="_blank">
               {TranslateString(448, 'Export recent winning numbers')}
             </Link>
           </StyledCardContentInner>
@@ -112,7 +112,7 @@ const WinningNumbers: React.FC = () => {
 const Link = styled.a`
   margin-top: 1em;
   text-decoration: none;
-  color: #e8bd36;
+  color: #2ab770;
 `
 
 const Row = styled.div`
@@ -185,7 +185,7 @@ const CenteredTextWithPadding = styled.div`
 const TicketNumberBox = styled.div`
   padding: 10px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #ecc237 0%, #d4a924 76.22%);
+  background: linear-gradient(180deg, #dcb46d 0%, #d0a860 76.22%);
   color: white;
   font-size: 20px;
   font-weight: 900;

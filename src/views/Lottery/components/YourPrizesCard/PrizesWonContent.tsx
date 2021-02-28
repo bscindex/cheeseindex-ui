@@ -67,7 +67,7 @@ const PrizesWonContent: React.FC = () => {
         <Won />
       </IconWrapper>
       <Heading as="h3" size="lg" color="secondary">
-        {TranslateString(660, 'You won!')}
+        {TranslateString(999, 'You won!')}
       </Heading>
       {claimLoading && <Loading />}
       {!claimLoading && (
@@ -84,7 +84,7 @@ const PrizesWonContent: React.FC = () => {
       )}
       <StyledCardActions>
         <Button fullWidth disabled={requestedClaim} onClick={handleClaim}>
-          {TranslateString(1056, 'Collect')}
+          {TranslateString(999, 'Collect')}
         </Button>
       </StyledCardActions>
       <StyledButton variant="text" onClick={onPresentMyTickets}>

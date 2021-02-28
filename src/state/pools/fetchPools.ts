@@ -4,20 +4,22 @@ import cidABI from 'config/abi/cid.json'
 import wbnbABI from 'config/abi/weth.json'
 import { QuoteToken } from 'config/constants/types'
 import multicall from 'utils/multicall'
-import { getAddress, getWbnbAddress } from 'utils/addressHelpers'
+import { getWbnbAddress } from 'utils/addressHelpers'
 import BigNumber from 'bignumber.js'
+
+const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 export const fetchPoolsBlockLimits = async () => {
   const poolsWithEnd = poolsConfig.filter((p) => p.csiId !== 0)
   const callsStartBlock = poolsWithEnd.map((poolConfig) => {
     return {
-      address: getAddress(poolConfig.contractAddress),
+      address: poolConfig.contractAddress[CHAIN_ID],
       name: 'startBlock',
     }
   })
   const callsEndBlock = poolsWithEnd.map((poolConfig) => {
     return {
-      address: getAddress(poolConfig.contractAddress),
+      address: poolConfig.contractAddress[CHAIN_ID],
       name: 'bonusEndBlock',
     }
   })
@@ -44,7 +46,7 @@ export const fetchPoolsTotalStatking = async () => {
     return {
       address: poolConfig.stakingTokenAddress,
       name: 'balanceOf',
-      params: [getAddress(poolConfig.contractAddress)],
+      params: [poolConfig.contractAddress[CHAIN_ID]],
     }
   })
 
@@ -52,7 +54,7 @@ export const fetchPoolsTotalStatking = async () => {
     return {
       address: getWbnbAddress(),
       name: 'balanceOf',
-      params: [getAddress(poolConfig.contractAddress)],
+      params: [poolConfig.contractAddress[CHAIN_ID]],
     }
   })
 

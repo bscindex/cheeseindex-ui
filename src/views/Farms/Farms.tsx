@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Route, useRouteMatch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
@@ -8,7 +8,7 @@ import { Image, Heading } from '@bscindex/uikit'
 import { BLOCKS_PER_YEAR, CID_PER_BLOCK, CID_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePriceCidBusd, usePriceEthBusd } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePriceCidBusd } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -24,7 +24,6 @@ const Farms: React.FC = () => {
   const cidPrice = usePriceCidBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
-  const ethPriceUsd = usePriceEthBusd()
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -34,13 +33,9 @@ const Farms: React.FC = () => {
     }
   }, [account, dispatch, fastRefresh])
 
-  const [stackedOnly, setStackedOnly] = useState(false)
-
   const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
-  const stackedOnlyFarms = activeFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
-  )
+
   // /!\ This function will be removed soon
   // This function compute the APY for each farm and will be replaced when we have a reliable API
   // to retrieve assets prices against USD
@@ -54,13 +49,10 @@ const Farms: React.FC = () => {
         const cidRewardPerBlock = CID_PER_BLOCK.times(farm.poolWeight)
         const cidRewardPerYear = cidRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        // cidPriceInQuote * cidRewardPerYear / lpTotalInQuoteToken
         let apy = cidPriceVsBNB.times(cidRewardPerYear).div(farm.lpTotalInQuoteToken)
 
-        if (farm.quoteTokenSymbol === QuoteToken.BUSD || farm.quoteTokenSymbol === QuoteToken.UST) {
+        if (farm.quoteTokenSymbol === QuoteToken.USDT || farm.quoteTokenSymbol === QuoteToken.USDC) {
           apy = cidPriceVsBNB.times(cidRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
-        } else if (farm.quoteTokenSymbol === QuoteToken.ETH) {
-          apy = cidPrice.div(ethPriceUsd).times(cidRewardPerYear).div(farm.lpTotalInQuoteToken)
         } else if (farm.quoteTokenSymbol === QuoteToken.CID) {
           apy = cidRewardPerYear.div(farm.lpTotalInQuoteToken)
         } else if (farm.dual) {
@@ -85,33 +77,38 @@ const Farms: React.FC = () => {
           removed={removed}
           bnbPrice={bnbPrice}
           cidPrice={cidPrice}
-          ethPrice={ethPriceUsd}
           ethereum={ethereum}
           account={account}
         />
       ))
     },
-    [farmsLP, bnbPrice, ethPriceUsd, cidPrice, ethereum, account],
+    [bnbPrice, farmsLP, account, cidPrice, ethereum],
   )
 
   return (
     <Page>
       <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(696, 'Stake LP tokens to earn CID')}
+        {TranslateString(999, 'Stake Cheese-LP tokens to earn CID')}
       </Heading>
-      <FarmTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
+      <Heading as="h3" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
+        {TranslateString(
+          999,
+          'CAUTION!: FARMS CALCULATED "APY" DATA IS REAL TIME AND AUTOMATICALLY COLLECTED FROM BLOCKCHAIN. DATA MAY NOT BE ACCURATE.',
+        )}
+      </Heading>
+      <FarmTabButtons />
       <div>
         <Divider />
         <FlexLayout>
           <Route exact path={`${path}`}>
-            {stackedOnly ? farmsList(stackedOnlyFarms, false) : farmsList(activeFarms, false)}
+            {farmsList(activeFarms, false)}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsList(inactiveFarms, true)}
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/cidcat.png" alt="CheeseIndexToken illustration" width={949} height={384} responsive />
+      <Image src="/images/farm-bg.svg" alt="CidFinance illustration" width={1080} height={600} responsive />
     </Page>
   )
 }

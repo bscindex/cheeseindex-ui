@@ -19,7 +19,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'CID-BNB',
+    lpSymbol: 'CID-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x9Aa251cFaBdA84F750DDE8A227F9240aE11E9f8C',
@@ -34,22 +34,22 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 2,
-    lpSymbol: 'BNB-BUSD',
+    lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',
       56: '0xF455f6f7988B752F75488E2CCcC030346d0Cac72',
     },
-    tokenSymbol: 'BNB',
+    tokenSymbol: 'BUSD',
     tokenAddresses: {
       97: '',
-      56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+      56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 3,
-    lpSymbol: 'USDT-BNB',
+    lpSymbol: 'USDT-BNB LP',
     lpAddresses: {
       97: '',
       56: '0xcfD63197d764cd70d07bB607e6367Ae0E869BaDD',
@@ -61,7 +61,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
-  }
+  },
 ]
 
 export default farms

@@ -9,7 +9,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};

@@ -17,7 +17,7 @@ const Blurb = styled(Text)`
 `
 
 const StyledHero = styled.div`
-  background-image: linear-gradient(180deg, #787b87 0%,#363b44 100%);
+  background-image: linear-gradient(180deg, #dcb46d 0%, #d0a860 100%);
   padding-bottom: 40px;
   padding-top: 40px;
 `
@@ -70,9 +70,9 @@ const Hero = () => {
     <StyledHero>
       <StyledContainer>
         <LeftWrapper>
-          <Title>{TranslateString(708, 'The CID Lottery')}</Title>
-          <Blurb>{TranslateString(710, 'Buy tickets with CID')}</Blurb>
-          <Blurb>{TranslateString(712, 'Win if 2, 3, or 4 of your ticket numbers match!')}</Blurb>
+          <Title>{TranslateString(999, 'The CID Lottery')}</Title>
+          <Blurb>{TranslateString(999, 'Buy tickets with CID')}</Blurb>
+          <Blurb>{TranslateString(999, 'Win if 2, 3, or 4 of your ticket numbers match!')}</Blurb>
         </LeftWrapper>
         <RightWrapper>
           <LotteryProgress />

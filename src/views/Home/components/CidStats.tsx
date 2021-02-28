@@ -1,13 +1,11 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@bscindex/uikit'
-import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCidAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
-import {usePriceCidBusd } from '../../../state/hooks'
 
 const StyledCidStats = styled(Card)`
   margin-left: auto;
@@ -25,12 +23,8 @@ const Row = styled.div`
 const CidStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
-  const burnedBalance = getBalanceNumber(useBurnedBalance(getCidAddress()))
-  const cidPrice = usePriceCidBusd();
-  const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
-  const cidSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
-  const marketCap = getBalanceNumber(cidPrice.times(circSupply));
-
+  const burnedBalance = useBurnedBalance(getCidAddress())
+  const cidSupply = totalSupply ? getBalanceNumber(totalSupply) - getBalanceNumber(burnedBalance) : 0
 
   return (
     <StyledCidStats>
@@ -40,23 +34,15 @@ const CidStats = () => {
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total CID Supply')}</Text>
-          {cidSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} />}
-        </Row>
-        <Row>
-          <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-          {cidSupply && <CardValue fontSize="14px" value={cidSupply} decimals={0} />}
+          {cidSupply && <CardValue fontSize="14px" value={cidSupply} />}
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(538, 'Total CID Burned')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
-        </Row>
-        <Row>
-          <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
-          <CardValue fontSize="14px" value={marketCap} decimals={0} prefix="$" />
+          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} />
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New CID/block')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={25} />
+          <CardValue fontSize="14px" decimals={4} value={0.02} />
         </Row>
       </CardBody>
     </StyledCidStats>

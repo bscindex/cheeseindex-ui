@@ -3,7 +3,7 @@ import { StringTranslations } from '@crowdin/crowdin-api-client'
 import { TranslationsContext } from 'contexts/Localisation/translationsContext'
 import { allLanguages, EN } from 'config/localisation/languageCodes'
 
-const CACHE_KEY = 'cheeseIndexTokenSwapLanguage'
+const CACHE_KEY = 'cidSwapLanguage'
 
 export interface LangType {
   code: string
@@ -25,7 +25,7 @@ const LanguageContext = React.createContext({
 } as LanguageState)
 
 const fileId = 8
-const projectId = parseInt(process.env.REACT_APP_CROWDIN_PROJECTID)
+const projectId = parseInt(process.env.REACT_APP_CROWDIN_PROJECT_ID)
 const stringTranslationsApi = new StringTranslations({
   token: process.env.REACT_APP_CROWDIN_APIKEY,
 })
@@ -60,15 +60,14 @@ const LanguageContextProvider = ({ children }) => {
       fetchTranslationsForSelectedLanguage(selectedLanguage)
         .then((translationApiResponse) => {
           if (translationApiResponse.data.length < 1) {
-            setTranslations([])
+            setTranslations(['error'])
           } else {
             setTranslations(translationApiResponse.data)
           }
         })
         .then(() => setTranslatedLanguage(selectedLanguage))
-        .catch((e) => {
-          setTranslations([])
-          console.error('Error while loading translations', e)
+        .catch(() => {
+          setTranslations(['error'])
         })
     }
   }, [selectedLanguage, setTranslations])

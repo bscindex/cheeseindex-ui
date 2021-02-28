@@ -61,12 +61,12 @@ const FarmedStakingCard = () => {
         </Heading>
         <CardImage src="/images/cid.svg" alt="cid logo" width={64} height={64} />
         <Block>
-          <Label>{TranslateString(544, 'CID to Harvest')}:</Label>
           <CidHarvestBalance />
+          <Label>{TranslateString(544, 'CID to Harvest')}</Label>
         </Block>
         <Block>
-          <Label>{TranslateString(546, 'CID in Wallet')}:</Label>
           <CidWalletBalance />
+          <Label>{TranslateString(546, 'CID in Wallet')}</Label>
         </Block>
         <Actions>
           {account ? (
@@ -78,7 +78,7 @@ const FarmedStakingCard = () => {
             >
               {pendingTx
                 ? TranslateString(548, 'Collecting CID')
-                : TranslateString(532, `Harvest all (${balancesWithValue.length})`)}
+                : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
             <UnlockButton fullWidth />

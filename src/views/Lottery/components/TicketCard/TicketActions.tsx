@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Button, useModal } from '@bscindex/uikit'
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import { useLotteryAllowance } from 'hooks/useAllowance'
+import { useLotteryApprove } from 'hooks/useApprove'
 import useTickets from 'hooks/useTickets'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { getCidAddress } from 'utils/addressHelpers'
-import { useApproval } from 'hooks/useApproval'
 import BuyTicketModal from './BuyTicketModal'
 import MyTicketsModal from './UserTicketsModal'
 import PurchaseWarningModal from './PurchaseWarningModal'
@@ -23,16 +23,32 @@ const CardActions = styled.div`
 `
 
 const TicketCard: React.FC = () => {
+  const [requestedApproval, setRequestedApproval] = useState(false)
   const TranslateString = useI18n()
   const allowance = useLotteryAllowance()
+  const { onApprove } = useLotteryApprove()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
   const cidBalance = useTokenBalance(getCidAddress())
+
   const tickets = useTickets()
   const ticketsLength = tickets.length
   const [onPresentMyTickets] = useModal(<MyTicketsModal myTicketNumbers={tickets} from="buy" />)
   const [onPresentApprove] = useModal(<PurchaseWarningModal />)
   const [onPresentBuy] = useModal(<BuyTicketModal max={cidBalance} tokenName="CID" />)
-  const { handleApprove, requestedApproval } = useApproval(onPresentApprove)
+
+  const handleApprove = useCallback(async () => {
+    try {
+      setRequestedApproval(true)
+      const txHash = await onApprove()
+      // user rejected tx or didn't go thru
+      if (!txHash) {
+        setRequestedApproval(false)
+      }
+      onPresentApprove()
+    } catch (e) {
+      console.error(e)
+    }
+  }, [onApprove, onPresentApprove])
 
   const renderLotteryTicketButtons = () => {
     if (!allowance.toNumber()) {
@@ -42,7 +58,7 @@ const TicketCard: React.FC = () => {
             {TranslateString(432, 'View your tickets')}
           </Button>
           <Button fullWidth disabled={requestedApproval} onClick={handleApprove}>
-            {TranslateString(494, 'Approve CID')}
+            {TranslateString(999, 'Approve CID')}
           </Button>
         </>
       )
@@ -67,11 +83,7 @@ const TicketCard: React.FC = () => {
 
   return (
     <CardActions>
-      {lotteryHasDrawn ? (
-        <Button disabled> {TranslateString(874, 'On sale soon')}</Button>
-      ) : (
-        renderLotteryTicketButtons()
-      )}
+      {lotteryHasDrawn ? <Button disabled> {TranslateString(999, 'On sale')}</Button> : renderLotteryTicketButtons()}
     </CardActions>
   )
 }

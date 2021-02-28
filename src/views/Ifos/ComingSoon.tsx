@@ -55,7 +55,7 @@ const ComingSoon = () => {
       <Content>
         <div>
           <Block>
-            <Title as="h2">{TranslateString(999, 'Coming Soon to CheeseIndexTokenSwap.')}</Title>
+            <Title as="h2">{TranslateString(999, 'Coming Soon to CidFinance.')}</Title>
             <Text mb={3}>
               {TranslateString(
                 504,
@@ -63,28 +63,28 @@ const ComingSoon = () => {
               )}
             </Text>
             <Text mb={3}>
-              <LiquidityLink href="https://exchange.cheeseIndexTokenswap.finance/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+              <LiquidityLink href="https://cheeseswap.app/#/add/ETH/0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB">
                 {TranslateString(506, 'Get CID-BNB LP >')}
               </LiquidityLink>
             </Text>
             <Text mb={3}>
-              {TranslateString(508, 'The project gets the BNB, CheeseIndexTokenSwap burns the CID.')}
+              {TranslateString(508, 'The project gets the BNB, CidFinance burns the CID.')}
               <br />
               <strong>{TranslateString(510, 'You get the tokens.')}</strong>
             </Text>
           </Block>
-          <MobileImage src="/images/ifo-bunny.svg" alt="ifo bunny" />
+          <MobileImage src="/images/ifo-shop.svg" alt="ifo shop" />
           <Block>
             <Title as="h2">{TranslateString(512, 'Want to launch your own IFO?')}</Title>
             <Text mb={3}>
               {TranslateString(
                 514,
-                'Launch your project with CheeseIndexTokenSwap, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
+                'Launch your project with CidFinance, Binance Smart Chain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on BSC.',
               )}
             </Text>
             <Button
               as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScGdT5rrVMr4WOWr08pvcroSeuIOtEJf1sVdQGVdcAOqryigQ/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfQxi51mWTkB5bdH8_op_xFVpZMBMTM5HqswZRI2xLXtT5FsA/viewform"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -93,7 +93,7 @@ const ComingSoon = () => {
           </Block>
         </div>
         <div>
-          <MainImage src="/images/ifo-bunny.svg" alt="ifo bunny" />
+          <MainImage src="/images/ifo-shop.svg" alt="ifo shop" />
         </div>
       </Content>
     </Page>

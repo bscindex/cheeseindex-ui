@@ -23,10 +23,7 @@ const OldCsiTitle: React.FC<Props> = ({ hasBalance = false }) => {
     return (
       <div>
         <Title>Action Required</Title>
-        <ActionLink
-          href=" https://cheeseIndexTokenswap.medium.com/urgent-action-required-changes-to-csi-pools-70b98d7b2541"
-          target="_blank"
-        >
+        <ActionLink href="/" target="_blank">
           What do I need to do?
         </ActionLink>
       </div>

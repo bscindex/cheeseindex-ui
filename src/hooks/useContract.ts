@@ -2,32 +2,18 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import {
-  getAddress,
-  getMasterChefAddress,
-  getCidAddress,
-  getLotteryAddress,
-  getLotteryTicketAddress,
-  getBunnyFactoryAddress,
-  getCheeseIndexTokenProfileAddress,
-  getCheeseIndexTokenRabbitsAddress,
-  getPointCenterIfoAddress,
-  getBunnySpecialAddress,
-} from 'utils/addressHelpers'
+import { getMasterChefAddress, getCidAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifo from 'config/abi/ifo.json'
 import erc20 from 'config/abi/erc20.json'
-import bunnyFactory from 'config/abi/bunnyFactory.json'
-import cheeseIndexTokenRabbits from 'config/abi/cheeseIndexTokenRabbits.json'
+import rabbitmintingfarm from 'config/abi/rabbitmintingfarm.json'
+import cidRabbits from 'config/abi/cidRabbits.json'
 import lottery from 'config/abi/lottery.json'
 import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
 import csiChef from 'config/abi/csiChef.json'
 import csiChefBnb from 'config/abi/csiChefBnb.json'
-import profile from 'config/abi/cheeseIndexTokenProfile.json'
-import pointCenterIfo from 'config/abi/pointCenterIfo.json'
-import bunnySpecial from 'config/abi/bunnySpecial.json'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -58,19 +44,14 @@ export const useCid = () => {
   return useERC20(getCidAddress())
 }
 
-export const useBunnyFactory = () => {
-  const bunnyFactoryAbi = (bunnyFactory as unknown) as AbiItem
-  return useContract(bunnyFactoryAbi, getBunnyFactoryAddress())
+export const useRabbitMintingFarm = (address: string) => {
+  const rabbitMintingFarmAbi = (rabbitmintingfarm as unknown) as AbiItem
+  return useContract(rabbitMintingFarmAbi, address)
 }
 
-export const useCheeseIndexTokenRabbits = () => {
-  const cheeseIndexTokenRabbitsAbi = (cheeseIndexTokenRabbits as unknown) as AbiItem
-  return useContract(cheeseIndexTokenRabbitsAbi, getCheeseIndexTokenRabbitsAddress())
-}
-
-export const useProfile = () => {
-  const profileABIAbi = (profile as unknown) as AbiItem
-  return useContract(profileABIAbi, getCheeseIndexTokenProfileAddress())
+export const useCidRabbits = (address: string) => {
+  const cidRabbitsAbi = (cidRabbits as unknown) as AbiItem
+  return useContract(cidRabbitsAbi, address)
 }
 
 export const useLottery = () => {
@@ -92,17 +73,7 @@ export const useCsiChef = (id) => {
   const config = poolsConfig.find((pool) => pool.csiId === id)
   const rawAbi = config.poolCategory === PoolCategory.BINANCE ? csiChefBnb : csiChef
   const abi = (rawAbi as unknown) as AbiItem
-  return useContract(abi, getAddress(config.contractAddress))
-}
-
-export const usePointCenterIfoContract = () => {
-  const abi = (pointCenterIfo as unknown) as AbiItem
-  return useContract(abi, getPointCenterIfoAddress())
-}
-
-export const useBunnySpecialContract = () => {
-  const abi = (bunnySpecial as unknown) as AbiItem
-  return useContract(abi, getBunnySpecialAddress())
+  return useContract(abi, config.contractAddress[process.env.REACT_APP_CHAIN_ID])
 }
 
 export default useContract

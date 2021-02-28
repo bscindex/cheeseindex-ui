@@ -80,9 +80,9 @@ const EarnAPYCard = () => {
         <Heading color="contrast" size="lg">
           Earn up to
         </Heading>
-        <CardMidContent color="#ECB323">
+        <CardMidContent color="#39A38C">
           {getHighestAPY() ? (
-            `${getHighestAPY()}% ${TranslateString(736, 'APR')}`
+            `${getHighestAPY()}% ${TranslateString(736, 'APY')}`
           ) : (
             <Skeleton animation="pulse" variant="rect" height="44px" />
           )}
@@ -91,7 +91,7 @@ const EarnAPYCard = () => {
           <Heading color="contrast" size="lg">
             in Farms
           </Heading>
-          <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
+          <NavLink exact activeClassName="active" to="/farms">
             <ArrowForwardIcon mt={30} color="primary" />
           </NavLink>
         </Flex>

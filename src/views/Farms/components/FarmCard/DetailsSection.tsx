@@ -1,14 +1,24 @@
 import React from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
+// import BigNumber from 'bignumber.js'
 import { Text, Flex, Link, LinkExternal } from '@bscindex/uikit'
+// import { Farm } from 'state/types'
+import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+
+export interface TokenAddressesObject {
+  56?: string
+  97?: string
+}
 
 export interface ExpandableSectionProps {
   bscScanAddress?: string
   removed?: boolean
   totalValueFormated?: string
   lpLabel?: string
-  addLiquidityUrl?: string
+  quoteTokenAdresses?: TokenAddressesObject
+  quoteTokenSymbol?: string
+  tokenAddresses: TokenAddressesObject
 }
 
 const Wrapper = styled.div`
@@ -35,20 +45,27 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   removed,
   totalValueFormated,
   lpLabel,
-  addLiquidityUrl,
+  quoteTokenAdresses,
+  quoteTokenSymbol,
+  tokenAddresses,
 }) => {
   const TranslateString = useI18n()
-
+  const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
+  //  const lpAddress = getLpAddress()
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
         <Text>{TranslateString(316, 'Stake')}:</Text>
-        <StyledLinkExternal href={addLiquidityUrl}>{lpLabel}</StyledLinkExternal>
+        <StyledLinkExternal href={`https://cheeseswap.app/#/add/${liquidityUrlPathParts}`}>
+          {lpLabel}
+        </StyledLinkExternal>
       </Flex>
       {!removed && (
         <Flex justifyContent="space-between">
-          <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
-          <Text>{totalValueFormated}</Text>
+          <Text>{TranslateString(23, ' ')}</Text>
+          {/*    <StyledLinkExternal href={`https://info.cheeseswap.app/pair/${tokenAddresses}`}>
+            {lpLabel}
+          </StyledLinkExternal> */}
         </Flex>
       )}
       <Flex justifyContent="flex-start">

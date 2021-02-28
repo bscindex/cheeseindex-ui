@@ -1,39 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, CardBody, Heading, Skeleton, Text } from '@bscindex/uikit'
+import { Card, CardBody, Heading, Link } from '@bscindex/uikit'
 import useI18n from 'hooks/useI18n'
-import { useGetStats } from 'hooks/api'
+// import { useGetStats } from 'hooks/api'
 
-const StyledTotalValueLockedCard = styled(Card)`
+const StyledPartnerCard = styled(Card)`
   align-items: center;
   display: flex;
   flex: 1;
 `
+const CardImage = styled.img`
+  margin: 2px;
+`
+const StyledLink = styled(Link)`
+  align-self: center;
+  margin-top: 16px;
+`
 
-const TotalValueLockedCard = () => {
+const PartnerCard = () => {
   const TranslateString = useI18n()
-  const data = useGetStats()
-  const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
+  //  const data = useGetStats()
+  //  const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
 
   return (
-    <StyledTotalValueLockedCard>
+    <StyledPartnerCard>
       <CardBody>
-        <Heading size="lg" mb="24px">
-          {TranslateString(762, 'Total Value Locked (TVL)')}
+        <Heading size="xl" mb="24px">
+          {TranslateString(550, ' Partnership')}
         </Heading>
-        {data ? (
-          <>
-            <Heading size="xl">{`$${tvl}`}</Heading>
-            <Text color="textSubtle">{TranslateString(764, 'Across all LPs and Csi Pools')}</Text>
-          </>
-        ) : (
-          <>
-            <Skeleton height={66} />
-          </>
-        )}
+        <StyledLink href="https://cheeseswap.app/">
+          <CardImage src="/images/cheeseswap.svg" alt="CheeseSwap logo" width={180} />
+        </StyledLink>
+        <StyledLink href="https://keep3rb.network/">
+          <CardImage src="/images/keep3rb.svg" alt="Keep3rb logo" width={180} />
+        </StyledLink>
       </CardBody>
-    </StyledTotalValueLockedCard>
+    </StyledPartnerCard>
   )
 }
 
-export default TotalValueLockedCard
+export default PartnerCard

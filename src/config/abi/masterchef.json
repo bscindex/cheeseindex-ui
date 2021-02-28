@@ -2,12 +2,12 @@
   {
     "inputs": [
       {
-        "internalType": "contract CheeseIndexToken",
+        "internalType": "contract CidToken",
         "name": "_cid",
         "type": "address"
       },
       {
-        "internalType": "contract CheeseIndexSecondary",
+        "internalType": "contract CsiBar",
         "name": "_csi",
         "type": "address"
       },
@@ -161,45 +161,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "cid",
-    "outputs": [
-      {
-        "internalType": "contract CheeseIndexToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "cidPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "csi",
-    "outputs": [
-      {
-        "internalType": "contract CheeseIndexSecondary",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -283,6 +244,32 @@
       }
     ],
     "name": "getMultiplier",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cid",
+    "outputs": [
+      {
+        "internalType": "contract CidToken",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cidPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -428,6 +415,19 @@
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "csi",
+    "outputs": [
+      {
+        "internalType": "contract CsiBar",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

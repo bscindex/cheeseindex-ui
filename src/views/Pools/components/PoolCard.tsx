@@ -38,6 +38,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     csiId,
     image,
     tokenName,
+    earnToken,
     stakingTokenName,
     stakingTokenAddress,
     projectLink,
@@ -137,7 +138,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             {csiId === 0 && account && harvest && (
               <HarvestButton
                 disabled={!earnings.toNumber() || pendingTx}
-                text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(704, 'Compound')}
+                text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(999, 'Compound')}
                 onClick={onPresentCompound}
               />
             )}
@@ -145,7 +146,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         ) : (
           <OldCsiTitle hasBalance={accountHasStakedBalance} />
         )}
-        <Label isFinished={isFinished && csiId !== 0} text={TranslateString(330, `${tokenName} earned`)} />
+        <Label isFinished={isFinished && csiId !== 0} text={TranslateString(330, `${earnToken} earned`)} />
         <StyledCardActions>
           {!account && <UnlockButton />}
           {account &&
@@ -181,7 +182,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             ))}
         </StyledCardActions>
         <StyledDetails>
-          <div style={{ flex: 1 }}>{TranslateString(736, 'APR')}:</div>
+          <div style={{ flex: 1 }}>{TranslateString(352, 'APY')}:</div>
           {isFinished || isOldCsi || !apy || apy?.isNaN() || !apy?.isFinite() ? (
             '-'
           ) : (
@@ -201,6 +202,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       <CardFooter
         projectLink={projectLink}
         totalStaked={totalStaked}
+        tokenName={tokenName}
         blocksRemaining={blocksRemaining}
         isFinished={isFinished}
         blocksUntilStart={blocksUntilStart}

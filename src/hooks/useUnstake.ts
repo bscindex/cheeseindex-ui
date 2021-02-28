@@ -27,7 +27,7 @@ const useUnstake = (pid: number) => {
   return { onUnstake: handleUnstake }
 }
 
-const CSIIDS = [5, 6, 3, 1, 22, 23]
+const CSIIDS = [1]
 
 export const useCsiUnstake = (csiId) => {
   const dispatch = useDispatch()

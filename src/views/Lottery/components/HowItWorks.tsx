@@ -28,9 +28,9 @@ const HowItWorks = () => {
 
   return (
     <LayoutWrapper>
-      <StyledImage src="/images/lottery-roller.svg" alt="lottery roller" width={163} height={140} />
+      <StyledImage src="/images/cid-lottery-bg.png" alt="lottery cid" width={163} height={140} />
       <StyledHeading size="lg" as="h3" color="secondary">
-        {TranslateString(632, 'How it works')}
+        {TranslateString(999, 'How it works')}
       </StyledHeading>
       <Text fontSize="16px">
         {TranslateString(
@@ -38,7 +38,7 @@ const HowItWorks = () => {
           'Spend CID to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',
         )}
       </Text>
-      <StyledLink href="https://docs.bscindex.com/lottery-1">Read more</StyledLink>
+      <StyledLink href="#">Read more</StyledLink>
     </LayoutWrapper>
   )
 }

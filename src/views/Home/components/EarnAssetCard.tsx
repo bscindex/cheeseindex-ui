@@ -7,7 +7,7 @@ import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#F9C544, #CA991D);
+  background: linear-gradient(#45d256, #379c93);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -16,12 +16,12 @@ const StyledFarmStakingCard = styled(Card)`
     max-width: none;
   }
 `
-const CardMidContent = styled(Heading).attrs({ size: 'md' })`
-  line-height: 30px;
+const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
+  line-height: 44px;
 `
 const EarnAssetCard = () => {
-  const activeNonCidPools = pools.filter((pool) => !pool.isFinished && !pool.tokenName.includes('CID'))
-  const latestPools: Pool[] = orderBy(activeNonCidPools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 3)
+  const latestPools: Pool[] = orderBy(pools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 2)
+
   // Always include CID
   const assets = ['CID', ...latestPools.map((pool) => pool.tokenName)].join(', ')
 
@@ -36,7 +36,7 @@ const EarnAssetCard = () => {
           <Heading color="contrast" size="lg">
             in Pools
           </Heading>
-          <NavLink exact activeClassName="active" to="/csi" id="pool-cta">
+          <NavLink exact activeClassName="active" to="/pools">
             <ArrowForwardIcon mt={30} color="primary" />
           </NavLink>
         </Flex>
