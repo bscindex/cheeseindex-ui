@@ -14,7 +14,7 @@ import { useFarms, usePriceBnbBusd, usePools } from 'state/hooks'
 import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import Coming from './components/Coming'
+// import Coming from './components/Coming'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import Divider from './components/Divider'
@@ -78,7 +78,7 @@ const Farm: React.FC = () => {
           <Heading as="h4" size="xl" mb="14px">
             {TranslateString(282, 'CID Smart Staking Pool')}
           </Heading>
-          <Heading as="h4" size="xl" mb="14px">
+          <Heading as="h4" size="md" mb="14px">
             {TranslateString(
               282,
               'CAUTION!!! PLEASE DO NOT SELL / MOVE YOUR EARNED #CSI TOKEN. YOUR TRANSACTION MAY REVERT THEN.',
@@ -98,7 +98,7 @@ const Farm: React.FC = () => {
             </li>
           </ul>
         </div>
-        <img src="/images/smart-pool.svg" alt="Smart Pool icon" width={250} height={191} />
+        <img src="/images/smart-pool.png" alt="Smart Pool icon" width={250} height={191} />
       </Hero>
       <PoolTabButtons />
       <Divider />
@@ -108,7 +108,7 @@ const Farm: React.FC = () => {
             {orderBy(openPools, ['sortOrder']).map((pool) => (
               <PoolCard key={pool.csiId} pool={pool} />
             ))}
-            <Coming />
+          {/*  <Coming /> */}
           </>
         </Route>
         <Route path={`${path}/history`}>
