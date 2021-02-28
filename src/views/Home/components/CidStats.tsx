@@ -30,7 +30,7 @@ const CidStats = () => {
     <StyledCidStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Cid Stats')}
+          {TranslateString(534, 'CID Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total CID Supply')}</Text>

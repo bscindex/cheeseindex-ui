@@ -10,6 +10,9 @@ import TotalValueLockedCard from './components/TotalValueLockedCard'
 import EarnAPYCard from './components/EarnAPYCard'
 import EarnAssetCard from './components/EarnAssetCard'
 import WinCard from './components/WinCard'
+import TwitterCard from './components/TwitterCard'
+import BSCIndexCard from './components/BSCIndexCard'
+import KeeperCard from './components/KeeperCard'
 
 const Hero = styled.div`
   align-items: center;
@@ -96,6 +99,11 @@ const Home: React.FC = () => {
           <EarnAPYCard />
           <EarnAssetCard />
           <WinCard />
+        </CTACards>
+        <CTACards>
+          <TwitterCard/>
+          <BSCIndexCard/>
+          <KeeperCard/>
         </CTACards>
         <Cards>
           <CidStats />
