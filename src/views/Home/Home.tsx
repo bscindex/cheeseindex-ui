@@ -101,9 +101,9 @@ const Home: React.FC = () => {
           <WinCard />
         </CTACards>
         <CTACards>
-          <TwitterCard/>
-          <BSCIndexCard/>
-          <KeeperCard/>
+          <TwitterCard />
+          <BSCIndexCard />
+          <KeeperCard />
         </CTACards>
         <Cards>
           <CidStats />

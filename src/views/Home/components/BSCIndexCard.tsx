@@ -16,22 +16,18 @@ const CardMidContent = styled(Heading).attrs({ size: 'lg' })`
   line-height: 30px;
 `
 
-
 const StyledLink = styled(Link)`
   align-self: center;
   margin-top: 16px;
 `
 const BSCIndexCard = () => {
-
   return (
     <StyledFarmStakingCard>
       <CardBody>
         <Heading color="contrast" size="lg">
           BSC Index exchange
         </Heading>
-        <CardMidContent color="#ECB323">
-         Features: Spot Trade, Orderbook, Stop Loss Trade, Margin
-        </CardMidContent>
+        <CardMidContent color="#ECB323">Features: Spot Trade, Orderbook, Stop Loss Trade, Margin</CardMidContent>
         <Flex justifyContent="space-between">
           <Heading color="contrast" size="lg">
             Developing
