@@ -88,7 +88,7 @@ const Home: React.FC = () => {
         <Heading as="h1" size="xl" mb="24px" color="secondary">
           {TranslateString(576, 'BSC Index Grower')}
         </Heading>
-        <Text>{TranslateString(578, 'The First Index Grower Yield Farm on Binance Smart Chain.')}</Text>
+        <Text>{TranslateString(578, 'The First Index Grower Yield and Exchange Farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
