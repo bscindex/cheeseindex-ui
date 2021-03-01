@@ -14,7 +14,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.CORE,
     projectLink: 'http://bscindex.com',
     harvest: true,
-    tokenPerBlock: '0.5',
+    tokenPerBlock: '0.1',
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,
