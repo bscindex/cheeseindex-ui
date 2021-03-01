@@ -22,16 +22,13 @@ const StyledLink = styled(Link)`
 `
 
 const KeeperCard = () => {
-
   return (
     <StyledFarmStakingCard>
       <CardBody>
         <Heading color="contrast" size="lg">
           Keeper BSC
         </Heading>
-        <CardMidContent color="#ECB323">
-          Join Keeper and Work
-        </CardMidContent>
+        <CardMidContent color="#ECB323">Join Keeper and Work</CardMidContent>
         <Flex justifyContent="space-between">
           <Heading color="contrast" size="lg">
             Earn KP3RB, BNB
