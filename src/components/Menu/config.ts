@@ -13,12 +13,12 @@ const config: MenuEntry[] = [
       {
         label: 'Exchange',
         href:
-          'https://cheeseswap.app/#/swap?inputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&outputCurrency=0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+          'https://cheeseswap.app/#/swap?inputCurrency=0x93f44521a0b6dde17e8c4bb8e85e8c215d2eef0e&outputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
       {
         label: 'Liquidity',
         href:
-          'https://cheeseswap.app/#/add/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+          'https://cheeseswap.app/#/add/0x93f44521a0b6dde17e8c4bb8e85e8c215d2eef0e/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
     ],
   },
@@ -42,11 +42,11 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Tokens',
-        href: 'https://info.cheeseswap.app/token/0xcfdf8a80fecaeecc144fa74c0df8691bfd0e26e3',
+        href: 'https://info.cheeseswap.app/token/0x93f44521a0b6dde17e8c4bb8e85e8c215d2eef0e',
       },
       {
         label: 'Pairs',
-        href: 'https://info.cheeseswap.app/pair/0xdf8481f4ffb688d940f59f839c2613cc6c40a79e',
+        href: 'https://info.cheeseswap.app/pair/0x9aa251cfabda84f750dde8a227f9240ae11e9f8c',
       },
       {
         label: 'Accounts',
