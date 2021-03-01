@@ -33,7 +33,7 @@ export enum QuoteToken {
   'USDC' = 'USDC',
   'CAKE' = 'CAKE',
   'XCHS' = 'XCHS',
-  'cCID' = 'cCID',
+  'CTK' = 'CTK',
   'BUTT' = 'BUTT',
   'CHSBNB' = 'CHSBNB',
 }
