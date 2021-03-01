@@ -60,7 +60,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/cidfinance',
+        href: 'https://github.com/bscindex',
       },
     ],
   },
