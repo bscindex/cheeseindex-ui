@@ -26,6 +26,12 @@ export default {
   busd: {
     56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
   },
+  pizza: {
+    56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+  },
+  kp3rb: {
+    56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
+  },
   csiChef: {
     97: '',
     56: '',
