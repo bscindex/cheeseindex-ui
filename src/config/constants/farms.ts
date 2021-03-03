@@ -63,6 +63,51 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.kp3rb,
   },
   {
+    pid: 9,
+    lpSymbol: 'KIWI SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0xCfDf8A80fECAeeCC144fa74c0Df8691BFd0e26e3',
+    },
+    tokenSymbol: 'KIWI',
+    tokenAddresses: {
+      97: '',
+      56: '0xCfDf8A80fECAeeCC144fa74c0Df8691BFd0e26e3',
+    },
+    quoteTokenSymbol: QuoteToken.KIWI,
+    quoteTokenAdresses: contracts.kiwi,
+  },
+  {
+    pid: 10,
+    lpSymbol: 'BUTT SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x0bc907e26377f7e072d27d7c57e72e13fc343abc',
+    },
+    tokenSymbol: 'BUTT',
+    tokenAddresses: {
+      97: '',
+      56: '0x0bc907e26377f7e072d27d7c57e72e13fc343abc',
+    },
+    quoteTokenSymbol: QuoteToken.BUTT,
+    quoteTokenAdresses: contracts.butt,
+  },
+  {
+    pid: 11,
+    lpSymbol: 'PKID SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
+    },
+    tokenSymbol: 'PKID',
+    tokenAddresses: {
+      97: '',
+      56: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
+    },
+    quoteTokenSymbol: QuoteToken.PKID,
+    quoteTokenAdresses: contracts.pkid,
+  },
+  {
     pid: 1,
     lpSymbol: 'CID-BNB LP',
     lpAddresses: {

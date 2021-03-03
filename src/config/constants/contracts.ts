@@ -32,6 +32,15 @@ export default {
   kp3rb: {
     56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
   },
+  butt: {
+    56: '0x0bc907e26377f7e072d27d7c57e72e13fc343abc',
+  },
+  kiwi: {
+    56: '0xCfDf8A80fECAeeCC144fa74c0Df8691BFd0e26e3',
+  },
+  pkid: {
+    56: '0x0Db5591EA716d2495860E1dAa47114ca416F6055',
+  },
   csiChef: {
     97: '',
     56: '',
