@@ -18,6 +18,51 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 6,
+    lpSymbol: 'CHS SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
+    },
+    tokenSymbol: 'CHS',
+    tokenAddresses: {
+      97: '',
+      56: '0xaDD8A06fd58761A5047426e160B2B88AD3B9D464',
+    },
+    quoteTokenSymbol: QuoteToken.CHS,
+    quoteTokenAdresses: contracts.chs,
+  },
+  {
+    pid: 7,
+    lpSymbol: 'PIZZA SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    },
+    tokenSymbol: 'PIZZA',
+    tokenAddresses: {
+      97: '',
+      56: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    },
+    quoteTokenSymbol: QuoteToken.PIZZA,
+    quoteTokenAdresses: contracts.pizza,
+  },
+  {
+    pid: 8,
+    lpSymbol: 'KP3RB SOLO',
+    lpAddresses: {
+      97: '',
+      56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
+    },
+    tokenSymbol: 'KP3RB',
+    tokenAddresses: {
+      97: '',
+      56: '0x5EA29eEe799aA7cC379FdE5cf370BC24f2Ea7c81',
+    },
+    quoteTokenSymbol: QuoteToken.KP3RB,
+    quoteTokenAdresses: contracts.kp3rb,
+  },
+  {
     pid: 1,
     lpSymbol: 'CID-BNB LP',
     lpAddresses: {
