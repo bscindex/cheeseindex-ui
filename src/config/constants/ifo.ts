@@ -2,22 +2,22 @@ import { Ifo } from './types'
 
 const ifos: Ifo[] = [
   {
-    id: 'IFO',
-    address: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    id: 'IFO-CID',
+    address: '0x451c714b8B44370A19941fe101B300b317F611B2',
     isActive: true,
-    name: 'XXXXX',
+    name: 'CID',
     subTitle: 'CidFinance - The Best Modern Yield Farm on Binance Smart Chain',
     description: 'CidFinance - The Best Modern Yield Farm on Binance Smart Chain.',
-    launchDate: 'Feb. 30',
+    launchDate: 'March. 6',
     launchTime: '8AM UTC',
-    saleAmount: '1,000,000 XXX',
-    raiseAmount: '$000,000',
-    cidToBurn: '$000,000',
+    saleAmount: '500 CID',
+    raiseAmount: '$1500',
+    cidToBurn: '$1000',
     projectSiteUrl: 'https://cidfinance.app/',
-    currency: 'CID-BNB LP',
-    currencyAddress: '0x2cc26dd730F548dc4ac291ae7D84a0C96980d2cB',
+    currency: 'PKID-BNB LP',
+    currencyAddress: '0x93289E37637055b4023Eb3e5CfE4b03f9D8F4785',
     tokenDecimals: 18,
-    releaseBlockNumber: 4086064,
+    releaseBlockNumber: 5434785,
   },
 ]
 
