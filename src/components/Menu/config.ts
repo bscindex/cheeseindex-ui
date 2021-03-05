@@ -2,16 +2,21 @@ import { MenuEntry } from '@bscindex/uikit'
 
 const config: MenuEntry[] = [
   {
+    label: 'BSCIndex',
+    icon: 'BSCIndexIcon',
+    href: 'https://bscindex.com',
+  },
+  {
     label: 'Home',
     icon: 'HomeIcon',
     href: '/',
   },
   {
-    label: 'Trade',
+    label: 'Swap',
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange',
+        label: 'Swap',
         href:
           'https://cheeseswap.app/#/swap?inputCurrency=0x93f44521a0b6dde17e8c4bb8e85e8c215d2eef0e&outputCurrency=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
       },
@@ -31,6 +36,16 @@ const config: MenuEntry[] = [
     label: 'Pools',
     icon: 'PoolIcon',
     href: '/pools',
+  },
+  {
+    label: 'Exchange',
+    icon: 'ExchangeIcon',
+    href: 'https://bscindex.com/#exchange',
+  },
+  {
+    label: 'Keeper',
+    icon: 'KeeperIcon',
+    href: 'https://keep3rb.network',
   },
   {
     label: 'Info',
